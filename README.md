@@ -1,6 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Simple employee management application
 
-## Available Scripts
+Bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Scripts
 
 In the project directory (which is `ui/`), you can run:
 
