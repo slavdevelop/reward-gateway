@@ -1,28 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const baseUrl = 'http://hiring.rewardgateway.net';
+import EmployeeList from './employees/EmployeeList';
 
-const App = () => (
-  <div>
-    <h1>React Application</h1>
-    <button
-      onClick={() =>
-        axios
-          .get(`${baseUrl}/list`, {
-            auth: {
-              username: 'hard',
-              password: 'hard'
-            }
-          })
-          .then(response => {
-            console.log(response.data);
-          })
-      }
-    >
-      Test request
-    </button>
-  </div>
-);
+// API URL and credentials
+const baseUrl = 'http://hiring.rewardgateway.net';
+const credentials = {
+  username: 'hard',
+  password: 'hard'
+};
+
+const App = () => {
+  const [employees, setEmployees] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchEmployees = async () => {
+      setLoading(true);
+
+      const response = await axios.get(`${baseUrl}/list`, {
+        auth: credentials
+      });
+
+      setEmployees(response.data);
+      setLoading(false);
+    };
+
+    fetchEmployees();
+  }, []);
+
+  return (
+    <div>
+      <EmployeeList employeeList={employees} loading={loading} />
+    </div>
+  );
+};
 
 export default App;
