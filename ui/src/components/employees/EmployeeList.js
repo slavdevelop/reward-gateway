@@ -6,9 +6,11 @@ const EmployeeList = ({ employeeList, loading }) => {
   }
 
   return (
-    <ul>
+    <ul className="list-group mb-4">
       {employeeList.map(employee => (
-        <li key={employee.uuid}>{employee.name}</li>
+        <li key={employee.uuid} className="list-group-item">
+          {employee.name}
+        </li>
       ))}
     </ul>
   );
