@@ -17,7 +17,7 @@ const Pagination = ({ totalEmployees, employeesPerPage, paginate }) => {
     <nav aria-label="Page navigation example">
       <ul className="pagination pagination-sm">
         <li className="page-item">
-          <a className="page-link" href="#">
+          <a className="page-link" href="!#">
             Previous
           </a>
         </li>
@@ -29,7 +29,7 @@ const Pagination = ({ totalEmployees, employeesPerPage, paginate }) => {
           </li>
         ))}
         <li className="page-item">
-          <a className="page-link" href="#">
+          <a className="page-link" href="!#">
             Next
           </a>
         </li>
